@@ -1,10 +1,11 @@
 import asyncio
+import os
 
-GATEWAY_ADDR = "127.0.0.1"
+GATEWAY_ADDR = "0.0.0.0"
 GATEWAY_PORT = 9999
 
-BACKEND_ADDR = "127.0.0.1"
-BACKEND_PORT = 8888
+BACKEND_ADDR = os.environ.get("BACKEND_ADDR", "backend")
+BACKEND_PORT = int(os.environ.get("BACKEND_PORT", 8888))
 
 stop_event = asyncio.Event()
 
