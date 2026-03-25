@@ -31,7 +31,7 @@ async def forward_tcp_server(data):
             BACKEND_PORT
         )
         
-        writer.write(data)
+        writer.write(data + b"\n")
         await writer.drain()
 
         server_backend = writer.get_extra_info('peername')
